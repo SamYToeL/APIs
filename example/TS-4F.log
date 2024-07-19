@@ -1,0 +1,251 @@
+ Entering Gaussian System, Link 0=g16
+ Initial command:
+ /share/apps/gaussian/g16/l1.exe "/tmp/Gau-7771.inp" -scrdir="/tmp/"
+ Entering Link 1 = /share/apps/gaussian/g16/l1.exe PID=      7773.
+  
+ Copyright (c) 1988,1990,1992,1993,1995,1998,2003,2009,2016,
+            Gaussian, Inc.  All Rights Reserved.
+  
+ This is part of the Gaussian(R) 16 program.  It is based on
+ the Gaussian(R) 09 system (copyright 2009, Gaussian, Inc.),
+ the Gaussian(R) 03 system (copyright 2003, Gaussian, Inc.),
+ the Gaussian(R) 98 system (copyright 1998, Gaussian, Inc.),
+ the Gaussian(R) 94 system (copyright 1995, Gaussian, Inc.),
+ the Gaussian 92(TM) system (copyright 1992, Gaussian, Inc.),
+ the Gaussian 90(TM) system (copyright 1990, Gaussian, Inc.),
+ the Gaussian 88(TM) system (copyright 1988, Gaussian, Inc.),
+ the Gaussian 86(TM) system (copyright 1986, Carnegie Mellon
+ University), and the Gaussian 82(TM) system (copyright 1983,
+ Carnegie Mellon University). Gaussian is a federally registered
+ trademark of Gaussian, Inc.
+  
+ This software contains proprietary and confidential information,
+ including trade secrets, belonging to Gaussian, Inc.
+  
+ This software is provided under written license and may be
+ used, copied, transmitted, or stored only in accord with that
+ written license.
+  
+ The following legend is applicable only to US Government
+ contracts under FAR:
+  
+                    RESTRICTED RIGHTS LEGEND
+  
+ Use, reproduction and disclosure by the US Government is
+ subject to restrictions as set forth in subparagraphs (a)
+ and (c) of the Commercial Computer Software - Restricted
+ Rights clause in FAR 52.227-19.
+  
+ Gaussian, Inc.
+ 340 Quinnipiac St., Bldg. 40, Wallingford CT 06492
+  
+  
+ ---------------------------------------------------------------
+ Warning -- This program may not be used in any manner that
+ competes with the business of Gaussian, Inc. or will provide
+ assistance to any competitor of Gaussian, Inc.  The licensee
+ of this program is prohibited from giving any competitor of
+ Gaussian, Inc. access to this program.  By using this program,
+ the user acknowledges that Gaussian, Inc. is engaged in the
+ business of creating and licensing software in the field of
+ computational chemistry and represents and warrants to the
+ licensee that it is not a competitor of Gaussian, Inc. and that
+ it will not use this program in any manner prohibited above.
+ ---------------------------------------------------------------
+  
+
+ Cite this work as:
+ Gaussian 16, Revision A.03,
+ M. J. Frisch, G. W. Trucks, H. B. Schlegel, G. E. Scuseria, 
+ M. A. Robb, J. R. Cheeseman, G. Scalmani, V. Barone, 
+ G. A. Petersson, H. Nakatsuji, X. Li, M. Caricato, A. V. Marenich, 
+ J. Bloino, B. G. Janesko, R. Gomperts, B. Mennucci, H. P. Hratchian, 
+ J. V. Ortiz, A. F. Izmaylov, J. L. Sonnenberg, D. Williams-Young, 
+ F. Ding, F. Lipparini, F. Egidi, J. Goings, B. Peng, A. Petrone, 
+ T. Henderson, D. Ranasinghe, V. G. Zakrzewski, J. Gao, N. Rega, 
+ G. Zheng, W. Liang, M. Hada, M. Ehara, K. Toyota, R. Fukuda, 
+ J. Hasegawa, M. Ishida, T. Nakajima, Y. Honda, O. Kitao, H. Nakai, 
+ T. Vreven, K. Throssell, J. A. Montgomery, Jr., J. E. Peralta, 
+ F. Ogliaro, M. J. Bearpark, J. J. Heyd, E. N. Brothers, K. N. Kudin, 
+ V. N. Staroverov, T. A. Keith, R. Kobayashi, J. Normand, 
+ K. Raghavachari, A. P. Rendell, J. C. Burant, S. S. Iyengar, 
+ J. Tomasi, M. Cossi, J. M. Millam, M. Klene, C. Adamo, R. Cammi, 
+ J. W. Ochterski, R. L. Martin, K. Morokuma, O. Farkas, 
+ J. B. Foresman, and D. J. Fox, Gaussian, Inc., Wallingford CT, 2016.
+ 
+ ******************************************
+ Gaussian 16:  ES64L-G16RevA.03 25-Dec-2016
+                19-Jul-2024 
+ ******************************************
+ %chk=TS-4F.chk
+ %nprocshared=8
+ Will use up to    8 processors via shared memory.
+ %mem=8GB
+ ----------------------------------------------------------------------
+ # External='python /share/home/Liaoyt/APIs/main.py aiqm1' geom=connect
+ ivity
+ ----------------------------------------------------------------------
+ 1/38=1,57=2,172=1/1;
+ 2/12=2,17=6,18=5,40=1/2;
+ 3/11=9,25=1,30=1,41=9900000,43=2/1;
+ 4/20=17,24=3,113=1,114=1/2;
+ 6/7=2,8=2,9=2,10=2/1;
+ 99/5=1,9=1/99;
+ ----------
+ title card
+ ----------
+ Symbolic Z-matrix:
+ Charge =  0 Multiplicity = 1
+ C                    -0.28354   1.14163   0.08775 
+ C                    -1.46629   1.46333  -0.19595 
+ H                    -2.00035   2.33715  -0.53087 
+ C                     1.20347   1.1851    0.12796 
+ H                     1.55051   1.84112  -0.67978 
+ H                     1.55048   1.64152   1.06362 
+ N                    -0.43866  -0.8251    0.4251 
+ O                    -1.70377  -1.08579  -0.00145 
+ H                    -2.01623  -0.05058  -0.15095 
+ H                    -0.33598  -1.08623   1.40604 
+ C                     0.68873  -1.22141  -0.41107 
+ H                     0.36051  -1.07828  -1.4435 
+ H                     0.98006  -2.27076  -0.27629 
+ C                     1.81357  -0.24322  -0.02606 
+ H                     2.26159  -0.56203   0.92298 
+ H                     2.61463  -0.2626   -0.77107 
+ 
+                          Input orientation:                          
+ ---------------------------------------------------------------------
+ Center     Atomic      Atomic             Coordinates (Angstroms)
+ Number     Number       Type             X           Y           Z
+ ---------------------------------------------------------------------
+      1          6           0       -0.283543    1.141635    0.087745
+      2          6           0       -1.466294    1.463331   -0.195954
+      3          1           0       -2.000348    2.337154   -0.530874
+      4          6           0        1.203469    1.185098    0.127962
+      5          1           0        1.550511    1.841116   -0.679778
+      6          1           0        1.550479    1.641516    1.063623
+      7          7           0       -0.438663   -0.825099    0.425095
+      8          8           0       -1.703767   -1.085785   -0.001448
+      9          1           0       -2.016233   -0.050577   -0.150948
+     10          1           0       -0.335983   -1.086226    1.406036
+     11          6           0        0.688725   -1.221405   -0.411071
+     12          1           0        0.360508   -1.078281   -1.443502
+     13          1           0        0.980061   -2.270763   -0.276290
+     14          6           0        1.813571   -0.243215   -0.026059
+     15          1           0        2.261587   -0.562029    0.922976
+     16          1           0        2.614626   -0.262604   -0.771066
+ ---------------------------------------------------------------------
+                    Distance matrix (angstroms):
+                    1          2          3          4          5
+     1  C    0.000000
+     2  C    1.258123   0.000000
+     3  H    2.181599   1.077475   0.000000
+     4  C    1.488191   2.703696   3.467815   0.000000
+     5  H    2.107634   3.078623   3.588429   1.096924   0.000000
+     6  H    2.136786   3.274019   3.954075   1.097358   1.754790
+     7  N    2.001477   2.584306   3.654118   2.612619   3.505176
+     8  O    2.643178   2.567532   3.476315   3.691298   4.429132
+     9  H    2.116733   1.611327   2.417820   3.459937   4.071833
+    10  H    2.589209   3.216242   4.270979   3.026929   4.059410
+    11  C    2.603475   3.449375   4.461929   2.519281   3.192791
+    12  H    2.772642   3.369477   4.251085   2.881487   3.243803
+    13  H    3.657004   4.464814   5.493683   3.486589   4.170823
+    14  C    2.515680   3.701173   4.632399   1.560777   2.200224
+    15  H    3.174550   4.387617   5.355654   2.191829   2.974820
+    16  H    3.332991   4.468055   5.302303   2.212568   2.359303
+                    6          7          8          9         10
+     6  H    0.000000
+     7  N    3.232428   0.000000
+     8  O    4.377518   1.360288   0.000000
+     9  H    4.130351   1.849442   1.091623   0.000000
+    10  H    3.334151   1.020282   1.962612   2.513963   0.000000
+    11  C    3.333715   1.458505   2.431091   2.958936   2.090497
+    12  H    3.885743   2.048031   2.518096   2.894092   2.933433
+    13  H    4.174526   2.143517   2.946633   3.731315   2.442401
+    14  C    2.192906   2.369533   3.616932   3.836679   2.717010
+    15  H    2.319713   2.758340   4.105230   4.440117   2.693603
+    16  H    2.850292   3.327127   4.463010   4.677003   3.758220
+                   11         12         13         14         15
+    11  C    0.000000
+    12  H    1.092760   0.000000
+    13  H    1.097358   1.779956   0.000000
+    14  C    1.539600   2.194965   2.206424   0.000000
+    15  H    2.165260   3.079097   2.449555   1.096826   0.000000
+    16  H    2.181282   2.489688   2.636154   1.094121   1.756152
+                   16
+    16  H    0.000000
+ Stoichiometry    C5H9NO
+ Framework group  C1[X(C5H9NO)]
+ Deg. of freedom    42
+ Full point group                 C1      NOp   1
+ Largest Abelian subgroup         C1      NOp   1
+ Largest concise Abelian subgroup C1      NOp   1
+                         Standard orientation:                         
+ ---------------------------------------------------------------------
+ Center     Atomic      Atomic             Coordinates (Angstroms)
+ Number     Number       Type             X           Y           Z
+ ---------------------------------------------------------------------
+      1          6           0       -0.283543    1.141635    0.087745
+      2          6           0       -1.466294    1.463331   -0.195954
+      3          1           0       -2.000347    2.337155   -0.530874
+      4          6           0        1.203469    1.185098    0.127962
+      5          1           0        1.550512    1.841116   -0.679778
+      6          1           0        1.550479    1.641516    1.063623
+      7          7           0       -0.438663   -0.825099    0.425095
+      8          8           0       -1.703767   -1.085784   -0.001448
+      9          1           0       -2.016233   -0.050576   -0.150948
+     10          1           0       -0.335983   -1.086226    1.406036
+     11          6           0        0.688725   -1.221405   -0.411071
+     12          1           0        0.360508   -1.078281   -1.443502
+     13          1           0        0.980060   -2.270763   -0.276290
+     14          6           0        1.813571   -0.243215   -0.026059
+     15          1           0        2.261587   -0.562030    0.922976
+     16          1           0        2.614626   -0.262605   -0.771066
+ ---------------------------------------------------------------------
+ Rotational constants (GHZ):           3.6795483           2.8464480           1.7475195
+ Standard basis: STO-3G (5D, 7F)
+ There are    44 symmetry adapted cartesian basis functions of A   symmetry.
+ There are    44 symmetry adapted basis functions of A   symmetry.
+    44 basis functions,   132 primitive gaussians,    44 cartesian basis functions
+    27 alpha electrons       27 beta electrons
+       nuclear repulsion energy       310.3644296453 Hartrees.
+ NAtoms=   16 NActive=   16 NUniq=   16 SFac= 1.00D+00 NAtFMM=   60 NAOKFM=F Big=F
+ Integral buffers will be    131072 words long.
+ Raffenetti 1 integral format.
+ Two-electron integral symmetry is turned on.
+ External calculation of energy.
+ Running external command "python /share/home/Liaoyt/APIs/main.py aiqm1 R"
+         input file       "/tmp/Gau-7773.EIn"
+         output file      "/tmp/Gau-7773.EOu"
+         message file     "/tmp/Gau-7773.EMs"
+         fchk file        "/tmp/Gau-7773.EFC"
+         mat. el file     "/tmp/Gau-7773.EUF"
+Using mlatom
+There is no gradient information in fort.15. Please check your input!
+mlatom finished
+ Recovered energy= -325.382461948     dipole=      0.000000000000      0.000000000000      0.000000000000
+ Energy=    -325.382462     NIter=   0.
+ Dipole moment=       0.000000       0.000000       0.000000
+ 1\1\GINC-MGR\SP\RExternal='python /share/home/Liaoyt/APIs/main.py aiqm
+ 1'\ZDO\C5H9N1O1\LIAOYT\19-Jul-2024\0\\# External='python /share/home/L
+ iaoyt/APIs/main.py aiqm1' geom=connectivity\\title card\\0,1\C,0,-0.28
+ 3543,1.141635,0.087745\C,0,-1.466294,1.463331,-0.195954\H,0,-2.000348,
+ 2.337154,-0.530874\C,0,1.203469,1.185098,0.127962\H,0,1.550511,1.84111
+ 6,-0.679778\H,0,1.550479,1.641516,1.063623\N,0,-0.438663,-0.825099,0.4
+ 25095\O,0,-1.703767,-1.085785,-0.001448\H,0,-2.016233,-0.050577,-0.150
+ 948\H,0,-0.335983,-1.086226,1.406036\C,0,0.688725,-1.221405,-0.411071\
+ H,0,0.360508,-1.078281,-1.443502\H,0,0.980061,-2.270763,-0.27629\C,0,1
+ .813571,-0.243215,-0.026059\H,0,2.261587,-0.562029,0.922976\H,0,2.6146
+ 26,-0.262604,-0.771066\\Version=ES64L-G16RevA.03\HF=-325.3824619\RMSD=
+ 0.000e+00\Dipole=0.,0.,0.\PG=C01 [X(C5H9N1O1)]\\@
+
+
+ ALL OUR THINKING ABOUT NATURE MUST NECESSARILY MOVE IN CIRCLES OR SPIRALS;
+ FOR WE CAN ONLY UNDERSTAND NATURE IF WE THINK ABOUT HER, AND WE CAN ONLY
+ THINK BECAUSE OUR BRAIN IS BUILT IN ACCORDANCE WITH NATURE'S LAWS.
+
+                                             -- TIMOTHY FERRIS, "GALAXIES"
+ Job cpu time:       0 days  0 hours  0 minutes 24.1 seconds.
+ Elapsed time:       0 days  0 hours  0 minutes  3.4 seconds.
+ File lengths (MBytes):  RWF=      6 Int=      0 D2E=      0 Chk=      2 Scr=      1
+ Normal termination of Gaussian 16 at Fri Jul 19 00:20:34 2024.

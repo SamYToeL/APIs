@@ -1,0 +1,5 @@
+
+! b3lyp def2-svp
+* xyzfile -1 1 test.xyz
+
+
