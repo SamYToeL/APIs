@@ -1,6 +1,6 @@
 import os
 import time
-from APIs.Molecule import Molecule
+from GauAPIs.Molecule import Molecule
 import numpy as np
 
 

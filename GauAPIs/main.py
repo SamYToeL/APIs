@@ -1,5 +1,7 @@
-from APIs.Molecule import Molecule
-from APIs import New_Calculator
+#! /usr/bin/env python3
+
+from GauAPIs.Molecule import Molecule
+from GauAPIs import New_Calculator
 from sys import argv
 import numpy as np
 import os 
@@ -33,13 +35,10 @@ def write_fileout(fileout, Ene, Gradient,der):
             for i in range(Gradient.shape[0]):
                 f.write('%20.12E%20.12E%20.12E\n'% (Gradient[i][0],Gradient[i][1],Gradient[i][2]))
                 f.write('\n')
+    
     return
 
-
-
-
-
-if __name__ == '__main__':
+def run():
     if len(argv) < 8:
         print("You should define a certain method used to calculate this layer\n e.g.: APIs gfn2-xtb\n ")
         print("If you want to use orca, you should method meanwhile define the core \n e.g.: APIs method core\n")
@@ -85,6 +84,12 @@ if __name__ == '__main__':
         Ene, Gradient = New_Calculator.calculate_mol_orca(Mole,charge,spin,method_use,core,deriva)
 
     write_fileout(fileout, Ene, Gradient,deriva)
+
+
+
+if __name__ == "__main__":
+    run()
+    
 
 
         
