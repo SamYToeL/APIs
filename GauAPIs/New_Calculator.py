@@ -95,7 +95,7 @@ def calculate_mol_mlatom(xyzfile,charge,spin,methodmlatm):
     model = ml.models.methods(method=methodmlatm)
     
     #calculate energy and force
-    model.predict(molecule=mol)
+    model.predict(molecule=mol,calculate_energy=True,calculate_energy_gradients=True)
 
     ene = mol.energy
     grad = mol.get_energy_gradients()

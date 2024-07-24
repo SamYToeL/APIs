@@ -1,7 +1,7 @@
 %chk=TS-4F.chk
 %nprocshared=8
 %mem=8GB
-# External='python /share/home/Liaoyt/APIs/main.py aiqm1' geom=connectivity
+#opt External='GauAPIs gfn2-xtb' geom=connectivity
 
 title card
 
