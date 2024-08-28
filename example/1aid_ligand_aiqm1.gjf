@@ -1,6 +1,6 @@
 %nprocshared=4
 %mem=4GB
-# opt=nomicro oniom(external='GauAPIs -m AIQM1':external='GauAPIs -m gfn2-xtb') nosymm
+# opt=nomicro oniom(external='GauAPIs -m AIQM1':external='GauAPIs -m gfn2-xtb -n 4') nosymm
 geom=connectivity
 
 1aid_THK_conf_1

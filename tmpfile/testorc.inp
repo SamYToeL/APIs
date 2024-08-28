@@ -1,0 +1,5 @@
+
+! b3lyp def2-svp engrad
+* xyzfile 0 1 H2O.xyz
+
+

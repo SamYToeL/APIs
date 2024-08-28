@@ -2,7 +2,8 @@ import os
 import time
 from GauAPIs.Molecule import Molecule
 import numpy as np
-
+import psutil
+import resource
 
 '''
 Calculators are:
@@ -19,6 +20,32 @@ eleslist = ['H','He',
 
 global b2a
 b2a = 0.52917724
+
+def calculate_mol_tblite(mol,xtbpara,ncpu=1):
+    try:
+        from tblite.interface import Calculator
+    except ImportError:
+        print('no tblite module found.')
+    '''
+    if ncpu != 1:
+    #set parallelization and stacksize
+        os.environ['OMP_STACKSIZE'] = f'{ncpu}G'
+        os.environ['OMP_NUM_THREADS'] = f'{len(psutil.Process().cpu_affinity())},1'
+        os.environ['OMP_MAX_ACTIVE_LEVELS'] = '1'
+    resource.setrlimit(resource.RLIMIT_STACK, (resource.RLIM_INFINITY, resource.RLIM_INFINITY))
+    '''
+    #calculation
+    numbers = mol.elements
+    coordinates = np.divide(mol.coordinates,b2a)
+    calc = Calculator(xtbpara,numbers,coordinates)
+    resu = calc.singlepoint()
+    Ene = resu.get("energy")
+    Grad = resu.get("gradient")
+    return Ene, Grad
+    
+
+
+
 
 #XTB default input is in Bohr
 def calculate_mol_xTB(mol,xtbpara):

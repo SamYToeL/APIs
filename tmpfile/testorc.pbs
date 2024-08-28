@@ -1,0 +1,55 @@
+#!/bin/bash
+#PBS -N testorc
+#PBS -l nodes=1:ppn=1
+#PBS -r n
+#PBS -j oe
+#PBS -q N5
+#PBS -l walltime=360:00:00
+cd $PBS_O_WORKDIR
+
+Node=`cat $PBS_NODEFILE | uniq`
+NNo=`cat $PBS_NODEFILE | uniq | sed -e 's/node//'`
+
+if [ ! -d /tmp/$USER ]
+then
+        mkdir -p /tmp/$USER
+fi
+
+tdir="/tmp/$USER/orca_$PBS_JOBID"
+mkdir $tdir
+
+#copy file
+cp $PBS_O_WORKDIR/*.inp $tdir/ 2>/dev/null
+cp $PBS_O_WORKDIR/*.gbw $tdir/ 2>/dev/null
+cp $PBS_O_WORKDIR/*.xyz $tdir/ 2>/dev/null
+
+cat $PBS_NODEFILE > $tdir/testorc.nodes
+
+#unset PATH
+source /share/env/ips2018u1.env
+source /share/env/openmpi-4.1.1-ips-2018u1.env
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/share/apps/orca501
+export ORCA_BIN=/share/apps/orca501
+export RSH_COMMAND="ssh"
+
+cd $tdir
+
+echo "Job execution start: $(date)" > $PBS_O_WORKDIR/testorc.log
+echo "Shared library path: $LD_LIBRARY_PATH" >> $PBS_O_WORKDIR/testorc.log
+echo "PBS Job ID is: ${PBS_JOBID}" >> $PBS_O_WORKDIR/testorc.log
+echo "PBS Job name is: ${PBS_JOBNAME}" >> $PBS_O_WORKDIR/testorc.log
+echo $Node >> $PBS_O_WORKDIR/testorc.log
+
+$ORCA_BIN/orca $tdir/testorc.inp >> $PBS_O_WORKDIR/testorc.log
+
+echo "Job execution finish: $(date)" >> $PBS_O_WORKDIR/testorc.log
+
+cp $tdir/*.gbw $PBS_O_WORKDIR/ 2>/dev/null
+cp $tdir/*.xyz $PBS_O_WORKDIR/ 2>/dev/null
+cp $tdir/*.cis $PBS_O_WORKDIR/ 2>/dev/null
+cp $tdir/*.nto $PBS_O_WORKDIR/ 2>/dev/null
+cp $tdir/*.loc $PBS_O_WORKDIR/ 2>/dev/null
+cp $tdir/orca_property.txt $PBS_O_WORKDIR/ 2>/dev/null
+
+rm -rf $tdir
+

@@ -42,7 +42,7 @@ def write_fileout(fileout, Ene, Gradient,der):
 
 def get_paras():
     parser = argparse.ArgumentParser(description='Connect files passed from Gaussian External command to the assigned methods for computation.',formatter_class=argparse.RawTextHelpFormatter)
-    #Define all the regular arguments from Gaussian---by setting up the 固定参数
+    #Define all the regular arguments from Gaussian---by setting up the regular parameters. The parser will match every input parameters to the setting arguments according to their sequences.
     inlist = ['layer','infile','outfile','Msg','FChk','MatE']
     helplist = ['layer info','.EIn','.EOu','.EMs','.EFc','.EUF']
     for i, it in enumerate(inlist):
@@ -87,28 +87,33 @@ def run():
     Mole = Molecule(elelist,coors,charge,spin,molname)
     New_Calculator.mol2xyz(Mole)
     #use different calculators to calculate the energy and gradient according to method defined.
-
+    if args.CPU != None:
+    #set parallelization and stacksize
+        os.environ['OMP_STACKSIZE'] = f'{args.CPU}G'
+        os.environ['OMP_NUM_THREADS'] = f'{args.CPU},1'
+        os.environ['OMP_MAX_ACTIVE_LEVELS'] = '1'    
+        #print(os.environ['OMP_NUM_THREADS'])
+        #print(os.environ['OMP_STACKSIZE'])
+        
     if args.method != None:
         if method_use.lower() in ['xtb', 'gfn2-xtb', 'gfn1-xtb']:
             #os.system('source activate Strain_VIZ')
             print('Using xtb-python')
             if method_use == 'xtb' or method_use == 'gfn2-xtb':
-                meth_in = 1                                  # gfn2xtb=1 in Param
+                meth_in = 'GFN2-xTB'                                  # gfn2xtb=1 in Param
             elif method_use == 'gfn1-xtb':
-                meth_in = 2                                 ## gfn2xtb=2 in Param
+                meth_in = 'GFN1-xTB'                                 ## gfn2xtb=2 in Param
 
-            os.system('ulimit -s unlimited')
             #define parallelization
             if args.CPU != None:
                 print(f'This xtb task will use {args.CPU} cores ')
-                os.system(f'export MKL_NUM_THREADS={args.CPU}')
-                os.system(f'export OMP_STACKSIZE={args.CPU}G')
-                os.system(f'export OMP_NUM_THREADS={args.CPU},1')
-            Ene, Gradient = New_Calculator.calculate_mol_xTB(Mole,meth_in)
+                Ene, Gradient = New_Calculator.calculate_mol_tblite(Mole,meth_in,int(args.CPU))
+            #Ene, Gradient = New_Calculator.calculate_mol_xTB(Mole,meth_in)
+            Ene, Gradient = New_Calculator.calculate_mol_tblite(Mole,meth_in)
             print('xtb calculation finished')
         elif method_use.lower() in ['ani-1x', 'ani-2x','ani-1ccx']:
             print('Using ani')
-            os.system('source activate Strain_VIZ')
+            #os.system('source activate Strain_VIZ')
             Ene, Gradient = New_Calculator.calculate_mol_ani(Mole,method_use)
             print('ani calculation finished')
         elif method_use.lower() in ['aiqm1', 'aiqm1@dft']:
